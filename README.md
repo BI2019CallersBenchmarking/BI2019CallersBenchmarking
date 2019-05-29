@@ -48,5 +48,11 @@ Specific samples, average coverage, sequencing kit, sequencer , experiment type 
 | [HG004]() | 219.84 | Agilent SureSelect Human All Exon V5 kit | HiSeq 2500 | Exome |
 | [SynDip]() | 41.9519 | Kapa Biosystems reagents |  | Genome |
 
-
+### How to compare
+To compare the obtained results of variant calling with reference samples, we used [HAP.PY.0.3.9](https://github.com/Illumina/hap.py/releases/tag/v0.3.9).
+Example of running comparison commands :
+``` bash
+	python2.7 ${happy} ${truth_vcf} ${vcf} -f ${truth_bed} -r ${ref} --engine=vcfeval \
+  --engine-vcfeval-template ${ref_template} --roc QUAL -T ${cds} --threads 16 -o ${output_dir}/{$output_filename}
+```
 ## Results
