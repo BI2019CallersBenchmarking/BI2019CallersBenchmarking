@@ -34,6 +34,7 @@ For evaluating the accuracy of small variant callers we used the following dasta
 Specific samples, average coverage, sequencing kit, sequencer , experiment type are shown in the table below.
 
 | source | average coverage | sequencing kit | sequencer | experiment type |
+| --- | --- | --- | --- | --- |
 | [HG001-1]() | 73.4254 | Nextera Rapid Capture Exome and Expanded Exome | HiSeq2500 | Exome |
 | [HG001-2]() | 80.9454 | SeqCap EZ Human Exome Library v3.0 | HiSeq2500 | Exome |
 | [HG001-3}() | 113.437 | SeqCap EZ Exome SeqCap v2 | HiSeq 2000 | Exome |
