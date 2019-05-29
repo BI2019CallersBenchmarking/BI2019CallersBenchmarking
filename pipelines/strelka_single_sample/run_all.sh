@@ -34,5 +34,5 @@ rm -rf tmp
 #index bams
 bash ../index_bams.sh
 
-#call variants with freebayes
+#call variants with strelka
 bash ../call_variants.sh
