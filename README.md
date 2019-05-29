@@ -37,7 +37,7 @@ Specific samples, average coverage, sequencing kit, sequencer , experiment type 
 | --- | --- | --- | --- | --- |
 | [HG001-1]() | 73.4254 | Nextera Rapid Capture Exome and Expanded Exome | HiSeq2500 | Exome |
 | [HG001-2]() | 80.9454 | SeqCap EZ Human Exome Library v3.0 | HiSeq2500 | Exome |
-| [HG001-3}() | 113.437 | SeqCap EZ Exome SeqCap v2 | HiSeq 2000 | Exome |
+| [HG001-3]() | 113.437 | SeqCap EZ Exome SeqCap v2 | HiSeq 2000 | Exome |
 | [HG001-4]() | 105.819 | SureSelect v2 |HiSeq 2000 | Exome |
 | [HG001-5]() | 67.4065 | SeqCap EZ Human Exome Library v3.0 | HiSeq 2000 | Exome |
 | [HG005]() | 186.532 | Agilent SureSelect Human All Exon V5 kit | HiSeq 2500 | Exome |
