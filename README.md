@@ -1,9 +1,15 @@
 # Environment construction for exome sequencing data processing
 
 ## Description
+Exome sequencing is the technology of sequencing all protein-coding genes in genome, i.e.,sequencing of all exones. 
+It is obvious that most of the possible variations of interest are concentrated in these loci. The obtained reads, of course, need to be handled somehow. 
+The processing of raw reads generally includes alignment, assessing the quality of alignment, calling, and then filtering out the identified indels and snps using various mechanisms. The output should represent a vcf file containing a list of variants that characterize one or several samples. In a whole, these pipelines are necessary to decide on specific variants found during sequencing, if these variants are artifacts of sequencing or alignment or they are real substitutions and indels in the genome. When analyzing the genomes, especially when searching for substitutions and indels associated with human diseases, the accuracy with which the calling of variants takes place is extremely important. Our goal was to evaluate this accuracy in different versions of calling pipelines.
 
 ## Goals and objectives
-
+The main goal of this project is to compare different pipelines of exome variant calling
+The objectives of the project:
+1) To develop a pipeline for the variant calling based on the GDK4 WDL reference scripts.
+2) To get to know the different variant callers and benchmark them using the Genome In A Bottle and SynDip datasets, to optimize the parameters for optimal performance.
 ## Methods
 
 ### Necessary software
@@ -56,3 +62,7 @@ Example of running comparison commands :
   --engine-vcfeval-template ${ref_template} --roc QUAL -T ${cds} --threads 16 -o ${output_dir}/{$output_filename}
 ```
 ## Results
+
+
+When comparing the quality of the calling on one randomly selected sample (HG004), the best performance was shown by DEEPVARIANT, which provided the highest parameters of Precision and Recall with different cutoffs for the variant quality
+
