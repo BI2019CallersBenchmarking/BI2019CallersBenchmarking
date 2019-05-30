@@ -65,4 +65,4 @@ Example of running comparison commands :
 
 
 When comparing the quality of the calling on one randomly selected sample (HG004), the best performance was shown by DEEPVARIANT, which provided the highest parameters of Precision and Recall with different cutoffs for the variant quality
-
+![Figure1](/Figures/Figure1.png)
