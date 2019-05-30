@@ -61,8 +61,66 @@ Example of running comparison commands :
 	python2.7 ${happy} ${truth_vcf} ${vcf} -f ${truth_bed} -r ${ref} --engine=vcfeval \
   --engine-vcfeval-template ${ref_template} --roc QUAL -T ${cds} --threads 16 -o ${output_dir}/{$output_filename}
 ```
+
+To obtain precision-recall curves, we used VCFeval function of rtg-tools (https://github.com/RealTimeGenomics/rtg-tools) (Cleary et al., 2014)
+Example of running comparison commands :
+``` bash
+$rtgtools vcfeval -b ${truth.vcf.gz} -c ${query.vcfgz} -e {truth_confidence_intervals}.bed -t ${reference_template} \
+--bed-regions ${cds_regions.bed} -o ${output.dir} -f QUAL
+```
 ## Results
 
-
 When comparing the quality of the calling on one randomly selected sample (HG004), the best performance was shown by DEEPVARIANT, which provided the highest parameters of Precision and Recall with different cutoffs for the variant quality
+
+![Figure1](/Figures/Figure1.png)
+
+Figure 1. Precision/Recall curves plotted for HG004 sample for different callers
+
+
+
+Next, we averaged the results over all analyzed samples, using F1 metric for quality evaluation. For indels, the previous version of GATK - GATK3 showed the best results, showing best performance than the new version, GATK4. For snps, DEEPVARIANT showed the best results.
+
+![Figure2](/Figures/Figure2.png)
+
+Figure 2. F1 metrics for different callers.
+
+
+
+We also found that evaluated calling quality is highly dependent on a specific sample. Figure 3 represents F1 metrics for specific pipelines and specific samples. We tried to identify a factor affecting the quality of the calling, besides the calling pipeline.
+
+![Figure3](/Figures/Figure3.png)
+
+Figure 3. F1 metrics for different samples and for specific callers.
+
+
+
+Interestingly, for most calling pipelines exomic experiments gave better results than genomic ones, which contradicts the available data, at least in the case of indels (Fang et al., 2014). Therefore, we assumed that there are other factors that have a greater influence on the calling.
+
+![Figure4](/Figures/Figure4.png)
+
+Figure 4. F1 metric boxplots for exomic and genomic experiments. 
+
+
+
+We also supposed that calling performance may depend on average coverage, but we couldn't detect that for our samples, probably due to  insufficient sample number.
+
+![Figure5](/Figures/Figure5.png)
+
+Figure 5. Correlation between coverage and F1 metric for different callers.
+
+
+
+Therefore, we suggested that other factors and their combinations may influence the resulting calling quality, but, to discover them, we need to increase our sample number. We still suppose that calling quality depends on average coverage, and we are planning to evaluate sensitivity of different callers to that parameter.
+
+## Conclusions
+
+1. Deep Variant and GATK3 showed the best results among callers
+2. GATK4 has not yet performed better than GATK3, and needs some improvements.
+3. Supposedly, the quality of calling depends on several parameters, including sample preparation, type of experiment and coverage, as well as their combination
+4. And it also depends on the caller :)
+
+## References
+1. Fang, H., Wu, Y., Narzisi, G., O’Rawe, J.A., Barrón, L.T.J., Rosenbaum, J., Ronemus, M., Iossifov, I., Schatz, M.C., and Lyon, G.J. (2014). Reducing INDEL calling errors in whole genome and exome sequencing data. Genome Med 6.
+2. Cleary, J.G., Braithwaite, R., Gaastra, K., Hilbush, B.S., Inglis, S., Irvine, S.A., Jackson, A., Littin, R., Nohzadeh-Malakshah, S., Rathod, M., et al. (2014). Joint variant and de novo mutation identification on pedigrees from high-throughput sequencing data. J. Comput. Biol. 21, 405–419.
+
 
