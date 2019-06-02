@@ -30,13 +30,9 @@ bash ${SCRIPTDIR}/run_gatkhc.sh ${ENRICHMENT} &>> $SCRIPTLOG
 
 cd ../vcfs/
 
-if $COHORT
-then
-	bash ${SCRIPTDIR}/genotype_wes.sh $PREFIX &>> $SCRIPTLOG
-	bash ${SCRIPTDIR}/vqsr.sh $PREFIX &>> $SCRIPTLOG
-else
-	bash ${SCRIPTDIR}/genotype_nonwes.sh $PREFIX &>> $SCRIPTLOG
-	bash ${SCRIPTDIR}/manual_filtration.sh $PREFIX &>> $SCRIPTLOG
+bash ${SCRIPTDIR}/genotype_wes.sh $PREFIX &>> $SCRIPTLOG
+bash ${SCRIPTDIR}/vqsr.sh $PREFIX &>> $SCRIPTLOG
+
 fi
 bash ${SCRIPTDIR}/select_wes.sh $PREFIX &>> $SCRIPTLOG
 bash ${SCRIPTDIR}/gt_refine.sh $PREFIX &>> $SCRIPTLOG
